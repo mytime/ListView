@@ -1,34 +1,58 @@
 package cn.uhei.listview;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by Administrator on 2016/1/18.
+ */
+public class MainActivity extends Activity {
 
     private ListView listView;
-    //2字符串类型的adapter
-    private ArrayAdapter<ListCellData> adapter;
-
+    private ArrayAdapter<ExampleItem> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //3初始化adapter
-        //arg 上下文，每一行的布局样式(可以使用系统自带的)，
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
-
-        //添加数据
-        adapter.add(new ListCellData("niupeiwang "));
-        adapter.add(new ListCellData("hello "));
-        adapter.add(new ListCellData("android "));
-
-
+        //查找listView
         listView = (ListView) findViewById(R.id.listView);
-        //1列表需要adapter来填充值
+
+        //初始化ArrayAdapte
+        //arg1 上下文
+        //arg2 子元素显示布局样式（调用系统自带的布局）
+        adapter = new ArrayAdapter<ExampleItem>(this,android.R.layout.simple_list_item_1);
+
+        //adapter添加内容，并重写ExampleItem的抽象方法，执行另外一个动作
+        adapter.add(new ExampleItem("ArrayAdapter示例") {
+
+            //重写onAction方法，执行启动另外一个Activity
+            @Override
+            public void onAction() {
+
+                //启动另外一个Activity
+                startActivity(new Intent(MainActivity.this,ArrayAdapterExampleActivity.class));
+
+            }
+        });
+
+        //填充列表
         listView.setAdapter(adapter);
 
+        /**
+         * 列表交互
+         */
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                adapter.getItem(position).onAction();
+            }
+        });
     }
 }
