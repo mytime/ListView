@@ -1,4 +1,4 @@
-package cn.uhei.listview;
+package cn.uhei.listview.models;
 
 /**
  * 自定义列表数据模型.

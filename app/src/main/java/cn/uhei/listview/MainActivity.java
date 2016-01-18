@@ -3,11 +3,13 @@ package cn.uhei.listview;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import cn.uhei.listview.controllers.ArrayAdapterExampleActivity;
+import cn.uhei.listview.models.ExampleItem;
 
 /**
  * Created by Administrator on 2016/1/18.
@@ -41,6 +43,17 @@ public class MainActivity extends Activity {
 
             }
         });
+
+        //添加元素并重写ExampleItem的抽象方法
+        adapter.add(new ExampleItem("ListActivity示例") {
+            @Override
+            public void onAction() {
+
+                //启动：ListActivityExampleActivity
+                startActivity(new Intent(MainActivity.this,ListActivityExampleActivity.class));
+            }
+        });
+
 
         //填充列表
         listView.setAdapter(adapter);

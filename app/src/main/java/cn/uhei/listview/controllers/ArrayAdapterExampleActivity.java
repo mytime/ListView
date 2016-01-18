@@ -1,4 +1,4 @@
-package cn.uhei.listview;
+package cn.uhei.listview.controllers;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import cn.uhei.listview.R;
+import cn.uhei.listview.models.Student;
 
 public class ArrayAdapterExampleActivity extends AppCompatActivity {
 

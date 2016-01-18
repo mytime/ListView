@@ -1,7 +1,7 @@
-package cn.uhei.listview;
+package cn.uhei.listview.models;
 
 /**
- * 数据模型
+ * 数据模型：ListActivity
  */
 public abstract class ExampleItem {
 
