@@ -14,6 +14,8 @@ public class ListActivityExampleActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //设定自定义布局
+        setContentView(R.layout.list_activity_example);
 
         //初始化ArrayAdapter
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
