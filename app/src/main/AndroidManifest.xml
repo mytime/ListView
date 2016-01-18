@@ -18,7 +18,8 @@
         <activity
             android:name=".controllers.ArrayAdapterExampleActivity"
             android:label="ArrayAdapter示例" />
-        <activity android:name=".ListActivityExampleActivity"></activity>
+        <activity android:name=".controllers.ListActivityExampleActivity" />
+        <activity android:name=".controllers.CheckboxesExampleActivity"></activity>
     </application>
 
 </manifest>

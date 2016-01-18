@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import cn.uhei.listview.controllers.ArrayAdapterExampleActivity;
+import cn.uhei.listview.controllers.CheckboxesExampleActivity;
+import cn.uhei.listview.controllers.ListActivityExampleActivity;
 import cn.uhei.listview.models.ExampleItem;
 
 /**
@@ -51,6 +53,14 @@ public class MainActivity extends Activity {
 
                 //启动：ListActivityExampleActivity
                 startActivity(new Intent(MainActivity.this,ListActivityExampleActivity.class));
+            }
+        });
+
+        //
+        adapter.add(new ExampleItem("CheckBoxesListView示例") {
+            @Override
+            public void onAction() {
+                startActivity(new Intent(MainActivity.this, CheckboxesExampleActivity.class));
             }
         });
 

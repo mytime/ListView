@@ -1,9 +1,11 @@
-package cn.uhei.listview;
+package cn.uhei.listview.controllers;
 
 import android.app.ListActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+
+import cn.uhei.listview.R;
 
 /**
  * 使用listActivity
