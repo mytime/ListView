@@ -9,7 +9,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
     //2字符串类型的adapter
-    private ArrayAdapter<String> adapter;
+    private ArrayAdapter<ListCellData> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +18,13 @@ public class MainActivity extends AppCompatActivity {
 
         //3初始化adapter
         //arg 上下文，每一行的布局样式(可以使用系统自带的)，
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
+        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
 
         //添加数据
-        adapter.add("niupeiwang ");
-        adapter.add("Hello");
-        adapter.add("android");
+        adapter.add(new ListCellData("niupeiwang "));
+        adapter.add(new ListCellData("hello "));
+        adapter.add(new ListCellData("android "));
+
 
         listView = (ListView) findViewById(R.id.listView);
         //1列表需要adapter来填充值
